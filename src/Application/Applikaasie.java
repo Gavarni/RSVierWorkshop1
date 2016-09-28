@@ -19,18 +19,24 @@ import java.sql.SQLException;
 public class Applikaasie {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException{
-        
+     
         Model model = new Model();
         View view = new View();
         Controller controller = new Controller(model, view);
 
+        //controller.runApp();
+        
         Artikel artikel = new Artikel();
         
-        //view.initView();
+        artikel.setArtikelNummer(3432);
+        artikel.setNaam("BLABLA BLA");
+        artikel.setOmschrijving("Omschrijving");
+        artikel.setPrijs(29.5);
+        artikel.setVoorraad(30);
         
-        DAOArtikel daoa = new DAOArtikel();
+        DAOArtikel dao = new DAOArtikel();
         
-        daoa.delete(3242);
+        dao.create(artikel);
      
     }
 }

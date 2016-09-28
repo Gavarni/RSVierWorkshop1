@@ -24,12 +24,15 @@ public class Controller {
         this.model = model;
         this.view = view;
         
-        while(view.getUserInput()!= 0){
-            
-            view.initView();
+    }
+    
+    public void runApp(){
+        view.initView();
+        while(true){
+            view.getUserInput();
+            System.out.print("User input is: " + view.getUserInput());
+            System.exit(0);
         }
     }
-  
-    
     
 }

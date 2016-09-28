@@ -6,30 +6,46 @@
 package Model.DAO;
 
 import Model.POJO.Artikel;
+import Utilities.JDBC.Database;
 import java.sql.*;
 
 
 /**
  *
  * @author Gavarni
- */
+ */ 
+    
 public class DAOArtikel{
     
     private PreparedStatement prepStmnt;
     private Artikel artikel;
+    private Connection connection;
     
     public DAOArtikel() throws ClassNotFoundException, SQLException{
     }
     
-    /**
-     *
-     * @param artikel
-     * @throws ClassNotFoundException
-     * @throws SQLException
-     */
-    public void Delete(int artikelNummer) throws ClassNotFoundException, SQLException{
+    public void create(Artikel artikel) throws ClassNotFoundException, SQLException{
         
-         // Load the JDBC MySQL Driver
+        Database.getDBOInstance();
+        
+        String query = "INSERT INTO Artikel(artikelNummer, naam, omschrijving, prijs, voorraad) VALUES(?, ?, ?, ?, ?)";
+        
+        try {
+            prepStmnt = connection.prepareStatement(query);
+            prepStmnt.setLong(1, artikel.getArtikelNummer());
+            prepStmnt.setString(2, artikel.getNaam());
+            prepStmnt.setString(3, artikel.getOmschrijving());
+            prepStmnt.setDouble(4, artikel.getPrijs());
+            prepStmnt.setInt(5, artikel.getVoorraad());
+        } catch(SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+    }
+    
+    public void delete(Artikel artikel) throws ClassNotFoundException, SQLException{
+        
+        // Load the JDBC MySQL Driver
         Class.forName("com.mysql.jdbc.Driver");
         System.out.println("Driver loaded");
         
@@ -42,7 +58,7 @@ public class DAOArtikel{
         try{
             prepStmnt = connection.prepareStatement(query);
             
-            prepStmnt.setInt(1, artikelNummer);
+            prepStmnt.setInt(1, artikel.getArtikelNummer());
             prepStmnt.executeUpdate();
             //System.out.print("Delete Succesful");
             
@@ -51,9 +67,5 @@ public class DAOArtikel{
         }
         
     }
-    
-    //public Create()
-    
 
-    
 }
