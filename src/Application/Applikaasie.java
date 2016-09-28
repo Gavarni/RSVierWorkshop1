@@ -37,7 +37,7 @@ public class Applikaasie {
         DAOArtikel dao = new DAOArtikel();
         
         dao.create(artikel);
-     
+        
     }
 }
 

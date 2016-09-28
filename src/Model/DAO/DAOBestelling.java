@@ -68,7 +68,7 @@ public class DAOBestelling{
         
     }
     
-    public List<Bestelling> getAllBestellingen() throws ClassNotFoundException, SQLException{
+    public List<Bestelling> readAll() throws ClassNotFoundException, SQLException{
         List<Bestelling> bestellingen = new ArrayList<Bestelling>();
         
         // Load the JDBC MySQL Driver
@@ -102,7 +102,7 @@ public class DAOBestelling{
         
     }
     
-    public Bestelling getBestellingByBestelNummer(Bestelling bestelling, Klant klant) throws ClassNotFoundException, SQLException{
+    public Bestelling readByBestelNummer(Bestelling bestelling, Klant klant) throws ClassNotFoundException, SQLException{
         
         Bestelling gevondenBestelling = new Bestelling();
         

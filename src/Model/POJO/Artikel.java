@@ -12,7 +12,7 @@ package Model.POJO;
 public class Artikel {
     
     private long idArtikel;
-    private int artikelNummer;
+    private long artikelNummer;
     private String naam;
     private String omschrijving;
     private double prijs;
@@ -29,11 +29,11 @@ public class Artikel {
         this.idArtikel = idArtikel;
     }
 
-    public int getArtikelNummer() {
+    public long getArtikelNummer() {
         return artikelNummer;
     }
 
-    public void setArtikelNummer(int artikelNummer) {
+    public void setArtikelNummer(long artikelNummer) {
         this.artikelNummer = artikelNummer;
     }
 
@@ -68,7 +68,5 @@ public class Artikel {
     public void setVoorraad(int voorraad) {
         this.voorraad = voorraad;
     }
-    
-    
     
 }
