@@ -27,18 +27,18 @@ public class DAOArtikel{
     public DAOArtikel() throws ClassNotFoundException, SQLException{
     }
     
-    public void create(Artikel artikel) throws ClassNotFoundException, SQLException{
+    public void create(Artikel artikel) {
         
-        Database.getDBOInstance();
+        connection = Database.getDBOInstance();
         
         String query = "INSERT INTO Artikel(artikelNummer, naam, omschrijving, prijs, voorraad) VALUES(?, ?, ?, ?, ?)";
         
-        try {
-            prepStmnt = connection.prepareStatement(query);
+        try(prepStmnt = connection.prepareStatement(query); ) {
+            
             prepStmnt.setLong(1, artikel.getArtikelNummer());
             prepStmnt.setString(2, artikel.getNaam());
             prepStmnt.setString(3, artikel.getOmschrijving());
-            prepStmnt.setDouble(4, artikel.getPrijs());
+            prepStmnt.setBigDecimal(4, artikel.getPrijs());
             prepStmnt.setInt(5, artikel.getVoorraad());
         } catch(SQLException ex) {
             ex.printStackTrace();
@@ -46,7 +46,7 @@ public class DAOArtikel{
         
     }
     
-    public void delete(Artikel artikel) throws ClassNotFoundException, SQLException{
+    public void delete(Artikel artikel) {
         
         // Load the JDBC MySQL Driver
         Class.forName("com.mysql.jdbc.Driver");
@@ -71,8 +71,8 @@ public class DAOArtikel{
         
     }
        
-    public List<Artikel> readAll() throws ClassNotFoundException, SQLException{
-        List<Artikel> artikelen = new ArrayList<Artikel>();
+    public List<Artikel> readAll() {
+        List<Artikel> artikelen = new ArrayList<Artikel>();// verander naar set want hibernate kan complicaties geven dubbele elementen
         
         // Load the JDBC MySQL Driver
         Class.forName("com.mysql.jdbc.Driver");

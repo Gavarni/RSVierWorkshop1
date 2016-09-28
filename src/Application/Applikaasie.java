@@ -25,7 +25,7 @@ public class Applikaasie {
         Controller controller = new Controller(model, view);
 
         //controller.runApp();
-        
+        /*
         Artikel artikel = new Artikel();
         
         artikel.setArtikelNummer(3432);
@@ -37,7 +37,8 @@ public class Applikaasie {
         DAOArtikel dao = new DAOArtikel();
         
         dao.create(artikel);
-        
+        */
+        controller.runApp();
     }
 }
 

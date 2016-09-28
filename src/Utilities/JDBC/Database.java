@@ -39,4 +39,6 @@ public class Database {
         return dbInstance;
     }
     
+    ///maak een static get connection methode
+    
 }

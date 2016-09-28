@@ -5,6 +5,8 @@
  */
 package Model.POJO;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author Gavarni
@@ -15,7 +17,7 @@ public class Artikel {
     private long artikelNummer;
     private String naam;
     private String omschrijving;
-    private double prijs;
+    private BigDecimal prijs;
     private int voorraad;
     
     public Artikel(){
@@ -53,11 +55,11 @@ public class Artikel {
         this.omschrijving = omschrijving;
     }
 
-    public double getPrijs() {
+    public BigDecimal getPrijs() {
         return prijs;
     }
 
-    public void setPrijs(double prijs) {
+    public void setPrijs(BigDecimal prijs) {
         this.prijs = prijs;
     }
 
