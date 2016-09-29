@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package View;
 
 /**
  *
  * @author gavarni
  */
-public class ControllerMedewerker extends Controller {
+interface interfaceView {
     
-    public ControllerMedewerker() {
-    }
+    public void showView();
+    public void readUserInput();
+    public int getUserInput();
     
 }

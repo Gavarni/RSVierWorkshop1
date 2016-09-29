@@ -11,18 +11,17 @@ import java.util.Scanner;
  *
  * @author Gavarni
  */
-public class View {
- 
-    Scanner in = new Scanner(System.in);
-    private int userChoice;
+public class View implements interfaceView{
     
+    //
+    protected int userChoice;
+    protected Scanner in;
     
     public View() {
-     
+        in = new Scanner(System.in);
     }
 
-    public void initView(){
-        
+    public void showView(){
         System.out.println("/-------------------------------------/");
         System.out.println("/             InlogScherm             /");
         System.out.println("/-------------------------------------/");
@@ -34,16 +33,15 @@ public class View {
         System.out.println("Optie (1) inloggen, optie (0) afsluiten");
         System.out.println("Geef uw invoer:");
         readUserInput();
-        
-    }
-    
-    
-    public void readUserInput() {
-        userChoice = in.nextInt();
     }
     
     public int getUserInput(){
         return userChoice;
     }
-}
 
+    @Override
+    public void readUserInput() {
+        userChoice = in.nextInt();
+    }
+    
+}

@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/gavarni/NetBeansProjects/RSVierWorkshop1/src/Model/DAO/DAOBestelling.java</file>
+            <file>file:/home/gavarni/NetBeansProjects/RSVierWorkshop1/src/Utilities/JDBC/Connector.java</file>
+            <file>file:/home/gavarni/NetBeansProjects/RSVierWorkshop1/src/Controller/Controller.java</file>
+            <file>file:/home/gavarni/NetBeansProjects/RSVierWorkshop1/src/Application/Applikaasie.java</file>
+            <file>file:/home/gavarni/NetBeansProjects/RSVierWorkshop1/src/Model/POJO/Artikel.java</file>
+            <file>file:/home/gavarni/NetBeansProjects/RSVierWorkshop1/src/Model/DAO/DAOArtikel.java</file>
+            <file>file:/home/gavarni/NetBeansProjects/RSVierWorkshop1/src/Controller/ControllerMedewerker.java</file>
+            <file>file:/home/gavarni/NetBeansProjects/RSVierWorkshop1/src/Utilities/JDBC/Database.java</file>
+        </group>
     </open-files>
 </project-private>
