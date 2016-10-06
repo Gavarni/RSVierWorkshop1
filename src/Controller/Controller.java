@@ -29,7 +29,7 @@ public class Controller implements InterfaceController{
     public void runApp(){
         showView();
         if (view.getUserInput() == 1){
-            facade.initLogin();
+            //facade.initLogin();
         } else if(view.getUserInput() == 0) {
         
         } else if (view.getUserInput() != 1 || view.getUserInput() != 0){

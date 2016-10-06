@@ -10,6 +10,7 @@ import Model.DAO.DAOArtikel;
 import Model.Model;
 import Model.POJO.Artikel;
 import View.View;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 
 /**
@@ -25,20 +26,29 @@ public class Applikaasie {
         Controller controller = new Controller(model, view);
 
         //controller.runApp();
-        /*
+        
         Artikel artikel = new Artikel();
         
-        artikel.setArtikelNummer(3432);
-        artikel.setNaam("BLABLA BLA");
-        artikel.setOmschrijving("Omschrijving");
-        artikel.setPrijs(29.5);
+        artikel.setIdArtikel(12);
+        artikel.setArtikelNummer(10011);
+        artikel.setNaam("Kaas11");
+        artikel.setOmschrijving("beste kaas ever Omschrijving");
+        artikel.setPrijs(new BigDecimal("1000.50"));
         artikel.setVoorraad(30);
         
+        System.out.print(artikel.getIdArtikel() + " ");
+        System.out.print(artikel.getArtikelNummer() + " ");
+        System.out.print(artikel.getNaam() + " ");
+        System.out.print(artikel.getOmschrijving() + " ");
+        System.out.print(artikel.getPrijs() + " ");
+        System.out.print(artikel.getVoorraad() + " ");
+        System.out.println();
         DAOArtikel dao = new DAOArtikel();
         
-        dao.create(artikel);
-        */
-        controller.runApp();
+        //dao.create(artikel);
+        //dao.readAll();
+       dao.update(artikel);
+        //controller.runApp();
     }
 }
 
