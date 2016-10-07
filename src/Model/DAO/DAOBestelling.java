@@ -5,13 +5,10 @@
  */
 package Model.DAO;
 
-import Model.POJO.Artikel;
 import Model.POJO.Bestelling;
 import Model.POJO.Klant;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -78,7 +75,7 @@ public class DAOBestelling{
     
     public Set<Bestelling> readAll() throws ClassNotFoundException, SQLException {
         
-        Set<Bestelling> bestellingen = new HashSet<Bestelling>();
+        Set<Bestelling> bestellingen = new HashSet<>();
         
         // Load the JDBC MySQL Driver
         Class.forName("com.mysql.jdbc.Driver");
@@ -96,6 +93,7 @@ public class DAOBestelling{
             
             while(result.next()){
                 Bestelling bestelling = new Bestelling();
+                
                 bestelling.setIdBestelling(result.getLong("idBestelling"));
                 bestelling.setBestelNummer(result.getString("bestelNummer"));
                 bestelling.setBestelDatum(result.getDate("bestelDatum"));
@@ -145,14 +143,35 @@ public class DAOBestelling{
         return gevondenBestelling;
     }
     
-    public void update(Bestelling bestelling){
+    public void update(Bestelling bestelling) throws ClassNotFoundException, SQLException{
         
+        // Load the JDBC MySQL Driver
+        Class.forName("com.mysql.jdbc.Driver");
+        System.out.println("Driver loaded");
         
+        //Connect to MySQL Database
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/Applikaasie", "piet", "kaas");
+        System.out.println("Database connected");
+
+        String query = "UPDATE Bestelling SET bestelNummer = ?, bestelDatum = ?, "
+                + "klant_idKlant = ?"
+                + "WHERE idBestelling = ?";
+                       
+        try {
+            prepStmnt = connection.prepareStatement(query);
+            
+            prepStmnt.setString(1, bestelling.getBestelNummer());
+            prepStmnt.setDate(2, (Date) bestelling.getBestelDatum());
+            prepStmnt.setLong(3, bestelling.getIdKlant());
+            prepStmnt.setLong(4, bestelling.getIdBestelling());
+            
+            prepStmnt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         
     }
-    
-    
-    
 
 }
     

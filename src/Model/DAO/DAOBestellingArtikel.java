@@ -80,9 +80,9 @@ public class DAOBestellingArtikel {
         
     }
     
-    public Set<Bestelling> readAll() throws ClassNotFoundException, SQLException {
+    public Set<BestellingArtikel> readAll() throws ClassNotFoundException, SQLException {
         
-        Set<Bestelling> bestellingen = new HashSet<Bestelling>();
+        Set<BestellingArtikel> bestellingArtikelen = new HashSet<>();
         
         // Load the JDBC MySQL Driver
         Class.forName("com.mysql.jdbc.Driver");
@@ -90,29 +90,29 @@ public class DAOBestellingArtikel {
         
         //Connect to MySQL Database
         connection = DriverManager.getConnection("jdbc:mysql://localhost/Applikaasie", "piet", "kaas");
-        System.out.println("Dataabse connected");
+        System.out.println("Database connected");
 
-        String query = "SELECT * FROM Bestelling";
+        String query = "SELECT * FROM Bestelling_has_Artikel";
         
         try {
             prepStmnt = connection.prepareStatement(query);
             ResultSet result = prepStmnt.executeQuery(query);
             
             while(result.next()){
-                Bestelling bestelling = new Bestelling();
+                BestellingArtikel bestellingArtikel = new BestellingArtikel();
                 
-                bestelling.setIdBestelling(result.getLong("idBestelling"));
-                bestelling.setBestelNummer(result.getString("bestelNummer"));
-                bestelling.setBestelDatum(result.getDate("bestelDatum"));
-                bestelling.setIdKlant(result.getInt("idKlant"));
+             //   bestellingArtikel.setIdBestelling(result.getLong("idBestelling"));
+             //   bestellingArtikel.getIdArtikel(result.getString("bestelling_idBestelling"));
+             //   bestellingArtikel.setBestelDatum(result.getDate("bestelDatum"));
+
                 
-                bestellingen.add(bestelling);
+                bestellingArtikelen.add(bestellingArtikel);
             }
             
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return bestellingen;
+        return bestellingArtikelen;
         
     }
     
