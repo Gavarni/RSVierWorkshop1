@@ -38,7 +38,7 @@ public class DAOArtikel{
         System.out.println("Driver loaded");
            
         //Connect to MySQL Database
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/Applikaasie", "piet", "kaas");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/Applikaasie", "piet", "kaas");
         System.out.println("Database connected");
         
         String query = "INSERT INTO Artikel(artikelNummer, naam, omschrijving, prijs, voorraad) VALUES(?, ?, ?, ?, ?)";
@@ -85,6 +85,7 @@ public class DAOArtikel{
     }
        
     public Set<Artikel> readAll() throws ClassNotFoundException, SQLException {
+        
         Set<Artikel> artikelen = new HashSet<>();// verander naar set want hibernate kan complicaties geven dubbele elementen
         
         // Load the JDBC MySQL Driver
@@ -140,7 +141,7 @@ public class DAOArtikel{
         System.out.println("Driver loaded");
         
         //Connect to MySQL Database
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/Applikaasie", "piet", "kaas");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/Applikaasie", "piet", "kaas");
         System.out.println("Database connected");
 
         String query = "SELECT * FROM Artikel WHERE Artikel.artikelNummer = ?";
@@ -190,7 +191,7 @@ public class DAOArtikel{
         System.out.println("Driver loaded");
         
         //Connect to MySQL Database
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/Applikaasie", "piet", "kaas");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/Applikaasie", "piet", "kaas");
         System.out.println("Database connected");
 
         String query = "SELECT * FROM Artikel WHERE Artikel.naam = ?";
@@ -238,7 +239,7 @@ public class DAOArtikel{
         System.out.println("Driver loaded");
         
         //Connect to MySQL Database
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/Applikaasie", "piet", "kaas");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/Applikaasie", "piet", "kaas");
         System.out.println("Database connected");
 
         String query = "UPDATE Artikel SET Artikel.artikelNummer = ?, Artikel.naam = ?, "

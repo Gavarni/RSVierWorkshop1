@@ -16,7 +16,7 @@ public class Bestelling {
     private long idBestelling;
     private String bestelNummer;
     private Date bestelDatum;
-    private int idKlant;
+    private long idKlant;
     
     public Bestelling(){
     }
@@ -45,11 +45,11 @@ public class Bestelling {
         this.bestelDatum = bestelDatum;
     }
 
-    public int getIdKlant() {
+    public long getIdKlant() {
         return idKlant;
     }
 
-    public void setIdKlant(int idKlant) {
+    public void setIdKlant(long idKlant) {
         this.idKlant = idKlant;
     }
     

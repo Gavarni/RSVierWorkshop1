@@ -12,7 +12,6 @@ package Model.POJO;
 public class BestellingArtikel {
     
     private long idBestelling;
-    private long idKlant;
     private long idArtikel;
     private int aantal; //We hebben in de SQL geen aantal om aan te geven hoeveel van elk artikel in de bestelling opgenomen worden
     
@@ -25,14 +24,6 @@ public class BestellingArtikel {
 
     public void setIdBestelling(long idBestelling) {
         this.idBestelling = idBestelling;
-    }
-
-    public long getIdKlant() {
-        return idKlant;
-    }
-
-    public void setIdKlant(long idKlant) {
-        this.idKlant = idKlant;
     }
 
     public long getIdArtikel() {
