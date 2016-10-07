@@ -25,11 +25,11 @@ public class FactoryDAO {
         return new DAOArtikel();
     }
     
-    public static DAOBestelling getDAOBestelling(){
+    public static DAOBestelling getDAOBestelling() throws ClassNotFoundException, SQLException{
         return new DAOBestelling();
     }
     
-    public static DAOKlant getDAOKlant(){
+    public static DAOKlant getDAOKlant() throws ClassNotFoundException, SQLException{
         return new DAOKlant();
     }
     
