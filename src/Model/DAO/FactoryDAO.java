@@ -13,12 +13,24 @@ import java.sql.SQLException;
  */
 public class FactoryDAO {
     
+    public static DAOAccount getDAOAccount() throws ClassNotFoundException, SQLException{
+        return new DAOAccount();
+    }
+    
+    public static DAOAdres getDAOAdres()  throws ClassNotFoundException, SQLException{
+        return new DAOAdres();
+    }
+    
     public static DAOArtikel getDAOArtikel() throws ClassNotFoundException, SQLException{
         return new DAOArtikel();
     }
     
     public static DAOBestelling getDAOBestelling(){
         return new DAOBestelling();
+    }
+    
+    public static DAOKlant getDAOKlant(){
+        return new DAOKlant();
     }
     
 }
